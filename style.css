@@ -1,0 +1,188 @@
+/* Reset & Fonts */
+* {margin:0; padding:0; box-sizing:border-box;}
+body {font-family: 'Poppins', sans-serif; background:#111; color:#fff; line-height:1.6;}
+
+/* Buttons */
+.btn {
+    display:inline-block;
+    background: linear-gradient(90deg, #2575fc, #1abc9c);
+    color:#fff;
+    padding:15px 30px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:600;
+    transition: 0.3s;
+}
+.btn:hover {transform: scale(1.05); box-shadow:0 0 20px rgba(26,188,156,0.5);}
+
+/* Navigation Bar */
+header {position:fixed; width:100%; top:0; left:0; z-index:100;}
+.navbar {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:20px 10%;
+    background: rgba(0,0,0,0.7);
+    backdrop-filter: blur(10px);
+}
+.logo {font-size:1.8rem; font-weight:700; background: linear-gradient(90deg,#2575fc,#1abc9c); -webkit-background-clip:text; color:transparent;}
+.nav-links {list-style:none; display:flex; gap:30px;}
+.nav-links li a {
+    text-decoration:none;
+    color:#fff;
+    font-weight:500;
+    transition:0.3s;
+    position:relative;
+}
+.nav-links li a::after {
+    content:"";
+    position:absolute;
+    width:0%;
+    height:2px;
+    bottom:-5px;
+    left:0;
+    background:#1abc9c;
+    transition:0.3s;
+}
+.nav-links li a:hover::after {width:100%;}
+.nav-links li a:hover {color:#1abc9c;}
+
+/* Burger Menu */
+.burger {display:none; flex-direction:column; cursor:pointer; gap:5px;}
+.burger span {width:25px; height:3px; background:#fff; transition:0.3s;}
+.burger.toggle span:nth-child(1) {transform: rotate(45deg) translate(5px,5px);}
+.burger.toggle span:nth-child(2) {opacity:0;}
+.burger.toggle span:nth-child(3) {transform: rotate(-45deg) translate(5px,-5px);}
+
+/* Mobile nav */
+@media(max-width:768px){
+    .nav-links {
+        position:fixed;
+        right:0;
+        top:0;
+        height:100vh;
+        width:50%;
+        background:#111;
+        flex-direction:column;
+        align-items:center;
+        padding-top:100px;
+        gap:30px;
+        transform: translateX(100%);
+        transition: transform 0.3s ease-in-out;
+    }
+    .nav-links.active {transform: translateX(0);}
+    .burger {display:flex;}
+}
+
+/* Hero Section */
+.hero {
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    color:#fff;
+    position:relative;
+    overflow:hidden;
+    padding:0 10%;
+}
+
+/* Floating Circles */
+.floating-circle {
+    width:100px;
+    height:100px;
+    border-radius:50%;
+    background: linear-gradient(135deg, #2575fc, #1abc9c);
+    position:absolute;
+    animation: float 6s ease-in-out infinite;
+    opacity:0.7;
+}
+.floating-circle:nth-child(1) {top:20%; left:10%; animation-delay:0s;}
+.floating-circle:nth-child(2) {top:40%; left:70%; animation-delay:2s;}
+.floating-circle:nth-child(3) {top:70%; left:30%; animation-delay:4s;}
+
+@keyframes float {
+    0%,100% {transform: translateY(0);}
+    50% {transform: translateY(-30px);}
+}
+
+.hero-content {position:relative; z-index:1;}
+.hero-content h1 {font-size:3rem; margin-bottom:20px; animation: fadeIn 1.5s ease forwards;}
+.hero-content p {font-size:1.2rem; margin-bottom:30px; animation: fadeIn 2s ease forwards;}
+@keyframes fadeIn {
+    0% {opacity:0; transform: translateY(20px);}
+    100% {opacity:1; transform: translateY(0);}
+}
+
+/* Services Section */
+.services {padding:100px 10%; text-align:center; background:#111;}
+.services h2 {font-size:2.5rem; margin-bottom:50px;}
+.steps {display:flex; justify-content:space-around; flex-wrap:wrap; gap:20px;}
+.step {background:#222; padding:30px; border-radius:20px; flex:1 1 250px; transition:0.3s;}
+.step:hover {transform: translateY(-10px); box-shadow:0 0 20px rgba(26,188,156,0.3);}
+
+/* Examples Section */
+.examples {padding:100px 10%; text-align:center; background:#111;}
+.examples h2 {font-size:2.5rem; margin-bottom:50px;}
+.example-cards {display:flex; justify-content:space-around; flex-wrap:wrap; gap:20px;}
+.card {background:#222; padding:50px; border-radius:20px; flex:1 1 250px; transition:0.3s;}
+.card:hover {transform: scale(1.05); box-shadow:0 0 25px rgba(26,188,156,0.3);}
+
+/* Submit Idea Form */
+.submit {padding:100px 10%; text-align:center; background:#111;}
+.submit h2 {font-size:2.5rem; margin-bottom:50px;}
+form {display:flex; flex-direction:column; max-width:500px; margin:0 auto;}
+input, textarea {margin-bottom:20px; padding:15px; border-radius:10px; border:none; outline:none; font-size:1rem;}
+textarea {resize:none;}
+form button {align-self:center;}
+
+/* Footer */
+footer {background:#000; text-align:center; padding:50px 10%;}
+footer .ceo img {width:100px; border-radius:50%; margin-bottom:20px;}
+footer p {margin-top:10px; font-size:0.9rem; color:#aaa;}
+
+/* Responsive */
+@media(max-width:768px){
+    .steps, .example-cards {flex-direction:column;}
+    .hero-content h1 {font-size:2.2rem;}
+    .hero-content p {font-size:1rem;}
+}
+.quick-links {
+    position: fixed;
+    right: 20px;
+    top: 50%;
+    transform: translateY(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    z-index: 200;
+}
+
+.quick-links .social {
+    width: 50px;
+    height: 50px;
+    background: #222;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    text-decoration: none;
+    transition: 0.3s;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
+}
+
+.quick-links .social img {
+    width: 70%;
+    height: 70%;
+    object-fit: contain;
+}
+
+.quick-links .social:hover {
+    transform: translateY(-5px) scale(1.1);
+    box-shadow: 0 0 20px rgba(26, 188, 156, 0.7);
+}
+
+/* Optional: Individual Colors */
+.quick-links .instagram:hover { background: #E1306C; }
+.quick-links .facebook:hover { background: #1877F2; }
+.quick-links .discord:hover { background: #7289DA; }
