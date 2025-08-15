@@ -73,11 +73,25 @@
 <!-- Submit Idea Form -->
 <section class="submit" id="submit">
     <h2>Submit Your Idea</h2>
-    <form id="ideaForm">
+    <form action="https://formsubmit.co/ankit22334a@gmail.com" method="POST" enctype="multipart/form-data">
+        <!-- Name -->
         <input type="text" name="name" placeholder="Your Name" required>
+        
+        <!-- Email -->
         <input type="email" name="email" placeholder="Your Email" required>
+        
+        <!-- Idea -->
         <textarea name="idea" placeholder="Describe Your Website Idea" required></textarea>
+        
+        <!-- File upload -->
         <input type="file" name="file">
+        
+        <!-- Hidden fields for customization -->
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_subject" value="New Idea Submitted!">
+        <input type="hidden" name="_template" value="table">
+        
+        <!-- Button -->
         <button type="submit" class="btn">Submit</button>
     </form>
 </section>
